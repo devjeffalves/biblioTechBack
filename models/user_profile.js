@@ -1,7 +1,9 @@
+const { DataTypes } = require('sequelize');
 const Sequelize = require('sequelize');
 const database = require('../data_base/db');
 
-const User = database.define('user_profile', {
+
+const UserProfile = database.define('user_profile', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -12,7 +14,7 @@ const User = database.define('user_profile', {
         type: Sequelize.STRING, 
         allowNull: false
     },
-    nick_name: {
+    nickname: {
         type: Sequelize.STRING, 
         allowNull: true
     },
@@ -20,32 +22,32 @@ const User = database.define('user_profile', {
         type: DataTypes.DATE,
         allowNull: false
       },
-      phoneNumber: {
-        type: DataTypes.STRING,
+    phoneNumber: {
+        type: DataTypes.STRING, // Corrigido para STRING
         allowNull: false,
         validate: {
           is: /^[0-9()+\- ]+$/i // Expressão regular para validar números de telefone
-        
-    }}
-}, {
+        }
+      }
+    }, {
         //configurações do modelo
         timestamps: true, // habilita createdAt e updatedAt
         hooks: {
             beforeCreate: (User, options) => {
                 const now = new Date();
                 const threeHoursLater = new Date(now.getTime() - 3 * 60 * 60 * 1000);
-                User.createdAt = threeHoursLater;
-                User.updatedAt = threeHoursLater;
+                UserProfile.createdAt = threeHoursLater;
+                UserProfile.updatedAt = threeHoursLater;
 
             },
             beforeUpdate: (User, options) => {
                 const now = new Date();
                 const threeHoursLater = new Date(now.getTime() - 3 * 60 * 60 * 1000);
-                User.updatedAt = threeHoursLater;
+                UserProfile.updatedAt = threeHoursLater;
 
         }
     }
 
     });
 
-    module.exports = User;
+    module.exports = UserProfile;

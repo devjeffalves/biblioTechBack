@@ -2,7 +2,8 @@
 // IIFE ( Immediately Invoked Function Expression) função em Javascript que e executada assim que definida.
 (async () => {
     const database = require('./data_base/db');
-    const User = require('./models/user_register');
+    //const User = require('./models/user_register');
+    const UserProfile = require('./models/user_profile');
 
     try { 
         const resultado = await database.sync();
@@ -12,11 +13,14 @@
         console.log(error);
     }
 
+    
 // Insere registro via Sequelize
-const resultadoCreate = await User.create ({
-    name: 'Jeferson',
-    email: 'jeff@teste.com',
-    password: '12qwaszx'
+const resultadoCreate = await UserProfile.create ({
+    name: '',
+    nickname: '',
+    birthDate: 0,
+    phoneNumber: ''
+    
 
 })
 

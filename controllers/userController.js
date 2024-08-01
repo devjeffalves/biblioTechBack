@@ -1,5 +1,6 @@
 //Importa o objeto usuario
 //const { Op } = require('sequelize');
+const UserProfile = require('../models/user_profile');
 const User = require('../models/user_register');
 
 
