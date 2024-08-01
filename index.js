@@ -14,12 +14,12 @@
     }
 
     
-// Insere registro via Sequelize
+//Insere registro via Sequelize
 const resultadoCreate = await UserProfile.create ({
-    name: '',
-    nickname: '',
+    name: 'jeferson',
+    nickname: 'Jeff',
     birthDate: 0,
-    phoneNumber: ''
+    phoneNumber: '998281823'
     
 
 })

@@ -42,7 +42,7 @@ exports.updateuser = async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (err) {
-    res.status(500).json({ error: 'Error to delete user' });
+    res.status(500).json({ error: 'Error to update user' });
   }
 };
 
@@ -58,6 +58,6 @@ exports.deleteuser = async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   } catch (err) {
-    res.status(500).json({ error: 'Error to update user' });
+    res.status(500).json({ error: 'Error to delete user' });
   }
 }
