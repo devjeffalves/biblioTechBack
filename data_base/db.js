@@ -4,6 +4,6 @@ require("dotenv").config();
 //Importa o módulo do Sequelize
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(process.env.CONNECTION_STRING, {dialect: 'mysql'});
+const sequelize = new Sequelize(process.env.HOST_CONNECTION, {dialect: 'mysql'});
 
 module.exports = sequelize;
